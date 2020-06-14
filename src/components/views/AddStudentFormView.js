@@ -59,6 +59,8 @@ const AddStudentFormView = (props) => {
             required
             type="number"
             step="0.01"
+            min="0"
+            max="4"
           ></input>
         </div>
 
