@@ -2,46 +2,51 @@ import React from "react";
 import PropTypes from "prop-types";
 
 const AddCampusFormView = (props) => {
+  const defaultURL = `https://via.placeholder.com/480x240?text=${props.name}`;
   return (
-    <div>
-      <form onSubmit={props.handleSubmit}>
-        <div>
-          Name:{" "}
+    <div className="container">
+      <form onSubmit={props.handleSubmit} className="pt-4">
+        <div className="form-group">
+          <label>Name</label>
           <input
+            className="form-control"
             value={props.name}
             name="name"
             onChange={props.handleChange}
             required
           ></input>
         </div>
-        <div>
-          Address:{" "}
+        <div className="form-group">
+          <label>Address</label>
           <input
+            className="form-control"
             value={props.address}
             name="address"
             onChange={props.handleChange}
             required
           ></input>
         </div>
-        <div>
-          Description:{" "}
+        <div className="form-group">
+          <label>Description</label>
           <input
+            className="form-control"
             value={props.description}
             name="description"
             onChange={props.handleChange}
             required
           ></input>
         </div>
-        <div>
-          Image Url:{" "}
+        <div className="form-group mb-4">
+          <label>Image Url</label>
           <input
-            value={props.imageUrl}
+            className="form-control"
+            value={defaultURL}
             name="imageUrl"
             onChange={props.handleChange}
             required
           ></input>
         </div>
-        <button>Create Campus</button>
+        <button className="btn btn-primary">Create Campus</button>
       </form>
     </div>
   );
