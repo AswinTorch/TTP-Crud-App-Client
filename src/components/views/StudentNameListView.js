@@ -8,12 +8,14 @@ const StudentNameListView = (props) => {
   }
   return (
     <>
-      <div>
-        <p>{props.students.length} Students</p>
-        <ul className="students">
+      <div className="col">
+        <h5 className="">{props.students.length} Students</h5>
+        <ul className="list-group">
           {props.students.map((student) => (
-            <li key={student.id} className="student-name">
-              <Link to={`/students/${student.id}`}>{student.firstName}</Link>
+            <li key={student.id} className="list-group-item">
+              <Link className="text-dark" to={`/students/${student.id}`}>
+                {student.firstName}
+              </Link>
             </li>
           ))}
         </ul>
