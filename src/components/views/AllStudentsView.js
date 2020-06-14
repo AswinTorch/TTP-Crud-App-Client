@@ -20,8 +20,16 @@ const AllStudentsView = ({ allStudents, handleDelete }) => {
         {allStudents.map((student) => (
           <div className="col-3 col-md-4 col-sm-2 mb-3" key={student.id}>
             <div className="card">
+              <img
+                src={student.imageUrl}
+                width="200px"
+                alt={student.firstName}
+                className="card-img-top"
+              />
               <div className="card-body">
-                <h3 className="card-title">{student.firstName}</h3>
+                <h3 className="card-title">
+                  {student.firstName} {student.lastName}
+                </h3>
 
                 <div className="form-inline">
                   <Link

@@ -87,7 +87,6 @@ const reducer = (state = [], action) => {
       );
 
     case DELETE_CAMPUS:
-      console.log(action.payload);
       return state.filter((campus) => campus.id !== action.payload);
     default:
       return state;

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { fetchAllStudentsThunk } from "../../thunks";
+import { fetchAllStudentsThunk, deleteStudentThunk } from "../../thunks";
 import { AllStudentsView } from "../views";
 
 // Smart container;
@@ -10,12 +10,17 @@ class AllStudentsContainer extends Component {
     this.props.fetchAllStudents();
   }
 
-  // handleDelete = (id) => {
-  //   this.props.deleteCampus(id);
-  // };
+  handleDelete = (id) => {
+    this.props.deleteStudent(id);
+  };
 
   render() {
-    return <AllStudentsView allStudents={this.props.allStudents} />;
+    return (
+      <AllStudentsView
+        allStudents={this.props.allStudents}
+        handleDelete={this.handleDelete}
+      />
+    );
   }
 }
 
@@ -31,6 +36,7 @@ const mapState = (state) => {
 const mapDispatch = (dispatch) => {
   return {
     fetchAllStudents: () => dispatch(fetchAllStudentsThunk()),
+    deleteStudent: (id) => dispatch(deleteStudentThunk(id)),
   };
 };
 
