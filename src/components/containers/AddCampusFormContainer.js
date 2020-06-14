@@ -41,7 +41,7 @@ class AddCampusFormContainer extends Component {
     //
     // setstate with isValidName
     if (isValidName) {
-      errors.name = "valid name";
+      errors.name = "Valid campus name";
     }
     this.setState({ isValidName, errors });
   };
@@ -55,7 +55,11 @@ class AddCampusFormContainer extends Component {
     return (
       <>
         {/* Can potentially be extracted into its own ErrorMessage component */}
-        {this.state.isValidName ? "" : this.state.errors.name}
+        {this.state.isValidName ? (
+          <div className="alert alert-success">{this.state.errors.name}</div>
+        ) : (
+          <div className="alert alert-warning">{this.state.errors.name}</div>
+        )}
         <AddCampusFormView
           name={this.state.name}
           address={this.state.address}
