@@ -2,7 +2,6 @@ import React from "react";
 import PropTypes from "prop-types";
 
 const AddCampusFormView = (props) => {
-  const defaultURL = `https://via.placeholder.com/480x240?text=${props.name}`;
   return (
     <div className="container">
       <form onSubmit={props.handleSubmit} className="pt-4">
@@ -40,7 +39,7 @@ const AddCampusFormView = (props) => {
           <label>Image Url</label>
           <input
             className="form-control"
-            value={defaultURL}
+            value="https://via.placeholder.com/480x240?text=Placeholder"
             name="imageUrl"
             onChange={props.handleChange}
             required
