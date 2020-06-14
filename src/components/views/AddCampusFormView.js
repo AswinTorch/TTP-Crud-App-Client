@@ -39,7 +39,7 @@ const AddCampusFormView = (props) => {
           <label>Image Url</label>
           <input
             className="form-control"
-            value="https://via.placeholder.com/480x240?text=Placeholder"
+            value="https://via.placeholder.com/480x240?text=Campus"
             name="imageUrl"
             onChange={props.handleChange}
             required

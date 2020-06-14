@@ -8,6 +8,10 @@ export class AddStudentFormContainer extends Component {
     super(props);
     this.state = {
       firstName: "",
+      lastName: "",
+      email: "",
+      imageUrl: "",
+      gpa: "",
       isValidName: false,
       errors: {},
     };
@@ -56,7 +60,11 @@ export class AddStudentFormContainer extends Component {
           <div className="alert alert-warning">{this.state.errors.name}</div>
         )}
         <AddStudentFormView
-          name={this.state.firstName}
+          firstName={this.state.firstName}
+          lastName={this.state.lastName}
+          email={this.state.email}
+          imageUrl={this.state.imageUrl}
+          gpa={this.state.gpa}
           handleSubmit={this.handleSubmit}
           handleChange={this.handleChange}
         />
