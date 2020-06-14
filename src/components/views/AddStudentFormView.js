@@ -1,63 +1,73 @@
 import React from "react";
-import PropTypes from "prop-types";
 
-const AddCampusFormView = (props) => {
+const AddStudentFormView = (props) => {
   return (
     <div className="container">
       <form onSubmit={props.handleSubmit} className="pt-4">
         <div className="form-group">
-          <label>Name</label>
+          <label>First Name</label>
           <input
             className="form-control"
-            value={props.name}
-            name="name"
+            value={props.firstName}
+            name="firstName"
             onChange={props.handleChange}
             required
           ></input>
         </div>
+
         <div className="form-group">
-          <label>Address</label>
+          <label>Last Name</label>
           <input
             className="form-control"
-            value={props.address}
-            name="address"
+            value={props.lastName}
+            name="lastName"
             onChange={props.handleChange}
             required
           ></input>
         </div>
+
         <div className="form-group">
-          <label>Description</label>
+          <label>Email</label>
           <input
             className="form-control"
-            value={props.description}
-            name="description"
+            value={props.email}
+            name="email"
             onChange={props.handleChange}
             required
+            type="email"
           ></input>
         </div>
-        <div className="form-group mb-4">
+
+        <div className="form-group">
           <label>Image Url</label>
           <input
             className="form-control"
-            value="https://via.placeholder.com/480x240?text=Campus"
+            value="https://via.placeholder.com/480x240?text=Student"
             name="imageUrl"
             onChange={props.handleChange}
             required
           ></input>
         </div>
-        <button className="btn btn-primary">Create Campus</button>
+
+        <div className="form-group">
+          <label>GPA</label>
+          <input
+            className="form-control"
+            value={props.gpa}
+            name="gpa"
+            onChange={props.handleChange}
+            required
+            type="number"
+            step="0.01"
+            min="0"
+            max="4"
+          ></input>
+        </div>
+
+        <button className="btn btn-primary">Add Student</button>
       </form>
     </div>
   );
 };
 
-AddCampusFormView.propTypes = {
-  handleSubmit: PropTypes.func.isRequired,
-  handleChange: PropTypes.func.isRequired,
-  name: PropTypes.string.isRequired,
-  address: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
-  imageUrl: PropTypes.string.isRequired,
-};
-
-export default AddCampusFormView;
+export default AddStudentFormView;

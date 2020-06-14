@@ -1,47 +1,45 @@
 import React from "react";
-import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
-import "../../app/App.css";
 
-const AllCampusesView = (props) => {
-  if (!props.allCampuses.length) {
+const AllStudentsView = ({ allStudents, handleDelete }) => {
+  if (!allStudents.length) {
     return (
       <div className="container pt-2">
-        <p className="alert alert-warning">There are no campuses.</p>
+        <p className="alert alert-warning">There are no students.</p>
       </div>
     );
   }
 
   return (
     <div className="container pt-2">
-      <h1 className="pt-2 pb-2">All Campuses</h1>
-      <Link to="/campuses/new" className="btn btn-success mb-4">
-        New Campus
+      <h1 className="pt-2 pb-2">All Students</h1>
+      <Link to="/students/new" className="btn btn-success mb-4">
+        New Student
       </Link>
       <div className="row">
-        {props.allCampuses.map((campus) => (
-          <div className="col-3 col-md-4 col-sm-2 mb-3" key={campus.id}>
+        {allStudents.map((student) => (
+          <div className="col-3 col-md-4 col-sm-2 mb-3" key={student.id}>
             <div className="card">
               <img
-                src={campus.imageUrl}
+                src={student.imageUrl}
                 width="200px"
-                alt={campus.name}
+                alt={student.firstName}
                 className="card-img-top"
               />
-
               <div className="card-body">
-                <h3 className="card-title">{campus.name}</h3>
+                <h3 className="card-title">
+                  {student.firstName} {student.lastName}
+                </h3>
 
-                <p>{campus.students.length} students</p>
                 <div className="form-inline">
                   <Link
-                    to={`/campuses/${campus.id}`}
+                    to={`/students/${student.id}`}
                     className="btn btn-info mr-3"
                   >
                     View
                   </Link>
                   <button
-                    onClick={() => props.handleDelete(campus.id)}
+                    onClick={() => handleDelete(student.id)}
                     className="btn btn-danger"
                   >
                     Delete
@@ -56,8 +54,4 @@ const AllCampusesView = (props) => {
   );
 };
 
-AllCampusesView.propTypes = {
-  allCampuses: PropTypes.array.isRequired,
-};
-
-export default AllCampusesView;
+export default AllStudentsView;
