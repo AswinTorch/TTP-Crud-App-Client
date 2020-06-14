@@ -3,6 +3,7 @@ import axios from "axios";
 // ACTION TYPES
 const FETCH_ALL_STUDENTS = "FETCH_ALL_STUDENTS";
 const ENROLL_STUDENT = "ENROLL_STUDENT";
+const ADD_STUDENT = "ADD_STUDENT";
 
 // ACTION CREATORS
 
@@ -16,6 +17,13 @@ const fetchAllStudents = (students) => {
 const enrollStudent = (student) => {
   return {
     type: ENROLL_STUDENT,
+    payload: student,
+  };
+};
+
+const addStudent = (student) => {
+  return {
+    type: ADD_STUDENT,
     payload: student,
   };
 };
@@ -35,6 +43,18 @@ export const enrollStudentThunk = (campusId, studentId) => (dispatch) => {
     .put(`/api/students/${studentId}`, { campusId: campusId })
     .then((res) => res.data)
     .then((student) => dispatch(enrollStudent(student)))
+    .catch((err) => console.log(err));
+};
+
+export const addStudentThunk = (student, ownProps) => (dispatch) => {
+  return axios
+    .post("/api/students", student)
+    .then((res) => res.data)
+    .then((newStudent) => {
+      const tweakedStudent = { ...newStudent };
+      dispatch(addStudent(tweakedStudent));
+      ownProps.history.push(`/students/${newStudent.id}`);
+    })
     .catch((err) => console.log(err));
 };
 

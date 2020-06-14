@@ -5,18 +5,23 @@ import "../../app/App.css";
 
 const AllCampusesView = (props) => {
   if (!props.allCampuses.length) {
-    return <div className="container">There are no campuses</div>;
+    return (
+      <div className="container pt-2">
+        <p className="alert alert-warning">There are no campuses.</p>
+      </div>
+    );
   }
 
   return (
-    <div className="container pt-4">
+    <div className="container pt-2">
+      <h1 className="pt-2 pb-2">All Campuses</h1>
       <Link to="/campuses/new" className="btn btn-success mb-4">
         New Campus
       </Link>
       <div className="row">
         {props.allCampuses.map((campus) => (
-          <div className="col-3 col-md-4 col-sm-2 mb-3">
-            <div key={campus.id} className="card">
+          <div className="col-3 col-md-4 col-sm-2 mb-3" key={campus.id}>
+            <div className="card">
               <img
                 src={campus.imageUrl}
                 width="200px"
