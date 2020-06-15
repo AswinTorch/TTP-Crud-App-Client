@@ -7,7 +7,10 @@ const AllCampusesView = (props) => {
   if (!props.allCampuses.length) {
     return (
       <div className="container pt-2">
-        <p className="alert alert-warning">There are no campuses.</p>
+        <p className="alert alert-warning mt-3">There are no campuses.</p>
+        <Link to="/campuses/new" className="btn btn-success mt-2">
+          New Campus
+        </Link>
       </div>
     );
   }

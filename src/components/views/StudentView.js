@@ -5,10 +5,22 @@ const StudentView = (props) => {
   return (
     <div>
       <div className="container pt-4 pb-4">
-        <img src={props.student.imageUrl} alt={props.student.firstName} />
-        <h1 className="pt-2">
-          {props.student.firstName} {props.student.lastName}
-        </h1>
+        <div className="row">
+          <div className="col-6">
+            <img
+              src={props.student.imageUrl}
+              alt={props.student.firstName}
+              className="pr-4"
+            />
+          </div>
+          <div className="col-6 pl-4">
+            <h1>
+              {props.student.firstName} {props.student.lastName}
+            </h1>
+            <p>Email: {props.student.email}</p>
+            {props.student.gpa ? <p>GPA: {props.student.gpa}</p> : null}
+          </div>
+        </div>
 
         <div className="pt-4">
           <Link
