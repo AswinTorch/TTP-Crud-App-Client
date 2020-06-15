@@ -5,7 +5,10 @@ const AllStudentsView = ({ allStudents, handleDelete }) => {
   if (!allStudents.length) {
     return (
       <div className="container pt-2">
-        <p className="alert alert-warning">There are no students.</p>
+        <p className="alert alert-warning mt-3">There are no students.</p>
+        <Link to="/students/new" className="btn btn-success mt-2">
+          New Student
+        </Link>
       </div>
     );
   }
